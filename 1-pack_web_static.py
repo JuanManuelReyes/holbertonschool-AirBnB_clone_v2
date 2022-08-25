@@ -8,7 +8,6 @@ from fabric.api import local
 import datetime
 
 
-
 def do_pack():
 	"""comment"""
 	try:
@@ -20,4 +19,3 @@ def do_pack():
 		return("versions/web_static_{}.tgz".format(date))
 	except:
 		return None
-
