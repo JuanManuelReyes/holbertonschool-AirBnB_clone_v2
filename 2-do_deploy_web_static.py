@@ -7,11 +7,12 @@ distributes an archive to your web servers, using the function do_deploy
 from fabric.api import run, put, env
 from os.path import exists
 
+env.user = "ubuntu"
 env.hosts = ['54.226.217.39', '34.229.176.58']
 
 
 def do_deploy(archive_path):
-	'''function'''
+	"""Comment"""
 	if exists(archive_path) is False:
 		return False
 	try:
