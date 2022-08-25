@@ -11,7 +11,7 @@ env.hosts = ['54.226.217.39', '34.229.176.58']
 
 
 def do_deploy(archive_path):
-"""Comment"""
+	"""Comment"""
 
 	if not exists(archive_path):
 		return False
@@ -30,7 +30,6 @@ def do_deploy(archive_path):
 			run("rm -rf " + file + "web_static")
 			run("rm -rf /data/web_static/current")
 			run("ln -s " + file + " " + "/data/web_static/current")
-
 			return True
 		except:
 			return False
