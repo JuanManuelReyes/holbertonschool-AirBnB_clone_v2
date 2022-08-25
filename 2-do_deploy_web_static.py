@@ -11,25 +11,22 @@ env.hosts = ['54.226.217.39', '34.229.176.58']
 
 
 def do_deploy(archive_path):
-        """Comment"""
-
-        if not os.pathexists(archive_path):
-                return False
-        else:
-                try:
-                        put(archive_path, '/tmp/')
-
-                        file_name = archive_path.split('/')
-                        file_without_extension = file_name[1].split('.')
-                        file = "/data/web_static/releases/" + file_without_extension[0] + "/"
-
-                        run("mkdir -p" + " " + file)
-                        run("tar -xzf /tmp/" + file_name[1] + " -C" + file)
-                        run("rm /tmp/" + file_name[1])
-                        run("mv " + file + "web_static/*" + " " + "/" + file_name)
-                        run("rm -rf " + file + "web_static")
-                        run("rm -rf /data/web_static/current")
-                        run("ln -s " + file + " " + "/data/web_static/current")
-                        return True
-                except:
-                        return False
+    '''function'''
+    if not os.path.exists(archive_path):
+        return False
+    else:
+        try:
+            put(archive_path, '/tmp/')
+            path_name = archive_path.split('/')[1]
+            path_name_no_ext = path_name.split('.')[0]
+            file_name = "/data/web_static/releases/" + path_name_no_ext + "/"
+            run("mkdir -p" + " " + file_name)
+            run("tar -xzf /tmp/" + path_name + " -C" + file_name)
+            run("rm /tmp/" + path_name)
+            run("mv " + file_name + "web_static/*" + " " + "/" + file_name)
+            run("rm -rf " + file_name + "web_static")
+            run("rm -rf /data/web_static/current")
+            run("ln -s " + file_name + " " + "/data/web_static/current")
+            return True
+        except:
+            return False
