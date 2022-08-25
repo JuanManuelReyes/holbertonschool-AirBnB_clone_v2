@@ -50,7 +50,7 @@ def do_deploy(archive_path):
 def deploy():
     """comment"""
     path = do_pack()
-    if os.path.exists(path):
+    if exists(path):
         return do_deploy(path)
     else:
         return False
