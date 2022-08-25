@@ -11,6 +11,7 @@ from os.path import exists
 env.user = "ubuntu"
 env.hosts = ['54.226.217.39', '34.229.176.58']
 
+
 def do_pack():
     """comment"""
     try:
