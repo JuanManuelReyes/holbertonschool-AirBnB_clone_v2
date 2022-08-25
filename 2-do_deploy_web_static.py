@@ -12,7 +12,7 @@ env.hosts = ['54.226.217.39', '34.229.176.58']
 
 def do_deploy(archive_path):
 	'''function'''
-	if not exists(archive_path):
+	if exists(archive_path) is False:
 		return False
 	try:
 		file_no_extension = archive_path.split('.')[0]
