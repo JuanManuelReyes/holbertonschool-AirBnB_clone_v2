@@ -15,8 +15,8 @@ def do_pack():
 		date = time.strftime("%Y%m%d%H%M%S")
 		local("mkdir -p versions")
 		local("tar -cvzf versions/web_static_{}.tgz web_static/"
-		.format(date))
+			.format(date))
 		return("versions/web_static_{}.tgz".format(date))
-	except as exception:
+	except:
 		return None
 
