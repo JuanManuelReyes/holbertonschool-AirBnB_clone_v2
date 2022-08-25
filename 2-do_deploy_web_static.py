@@ -14,19 +14,20 @@ def do_deploy(archive_path):
     '''function'''
     if not os.path.exists(archive_path):
         return False
-    else:
-        try:
-            put(archive_path, '/tmp/')
-            path_name = archive_path.split('/')[1]
-            path_name_no_ext = path_name.split('.')[0]
-            file_name = "/data/web_static/releases/" + path_name_no_ext + "/"
-            run("mkdir -p" + " " + file_name)
-            run("tar -xzf /tmp/" + path_name + " -C" + file_name)
-            run("rm /tmp/" + path_name)
-            run("mv " + file_name + "web_static/*" + " " + "/" + file_name)
-            run("rm -rf " + file_name + "web_static")
-            run("rm -rf /data/web_static/current")
-            run("ln -s " + file_name + " " + "/data/web_static/current")
-            return True
-        except:
-            return False
+    try:
+		file_no_extension = archive_path.split('.')[0]
+    	file_extension = archive_path.split('/')[1]
+    	input_path = "/data/web_static/releases/{}/".format(file_no_extension)
+  
+        put(archive_path, "/tmp/")
+        run("sudo mkdir -p {}".format(input_path))
+        run("sudo tar -zxvf /tmp/{} -C {}".format(file_extension, input_path))
+        run("sudo rm -rf /tmp/{}".format(file_extension))
+        run("sudo mv -n {}/web_static/* {}".format(input_path, input_path))
+        run("sudo rm -rf {}/web_static".format(input_path))
+        run("sudo rm /data/web_static/current")
+        run("sudo ln -s {} /data/web_static/current".format(input_path))
+        return True
+
+    except Exception:
+        return False
