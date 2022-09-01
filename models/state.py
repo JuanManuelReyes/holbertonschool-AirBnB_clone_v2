@@ -5,7 +5,8 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 from os import getenv
-
+import models
+from models.city import City
 
 # class State(BaseModel, Base):
 #     """ The state class, contains relationship and name """
@@ -30,7 +31,7 @@ from os import getenv
 
 class State(BaseModel, Base):
     """ State class """
-    type_storage = os.getenv("HBNB_TYPE_STORAGE")
+    type_storage = getenv("HBNB_TYPE_STORAGE")
     __tablename__ = "states"
 
     if type_storage == "db":
