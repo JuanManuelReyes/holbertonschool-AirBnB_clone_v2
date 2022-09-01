@@ -29,7 +29,7 @@ def print_C(text):
     (replace underscore _ symbols with a space).
     """
     final_text = text.replace("_", " ")
-    return f"C {final_text}"
+    return "C {}".format(final_text)
 
 if __name__ == '__main__':
     """
