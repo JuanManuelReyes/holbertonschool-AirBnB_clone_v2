@@ -7,6 +7,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def hello_HBNB():
     """
@@ -22,6 +23,7 @@ def HBNB():
     """
     return 'HBNB'
 
+
 @app.route("/c/<text>", strict_slashes=False)
 def print_C(text):
     """
@@ -30,6 +32,7 @@ def print_C(text):
     """
     final_text = text.replace("_", " ")
     return "C {}".format(final_text)
+
 
 if __name__ == '__main__':
     """
