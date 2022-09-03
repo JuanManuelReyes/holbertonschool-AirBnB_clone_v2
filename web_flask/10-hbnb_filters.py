@@ -41,6 +41,8 @@ def print_C(text):
 """
 With strict slashes /python and /python/ have the same result
 """
+
+
 @app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def print_py(text="is cool"):
@@ -79,8 +81,7 @@ def odd_or_even_template(n):
         desc = "even"
     else:
         desc = "odd"
-    return render_template("6-number_odd_or_even.html", number=n,
-                           desc=desc)
+    return render_template("6-number_odd_or_even.html", number=n, desc=desc)
 
     
 @app.teardown_appcontext
@@ -112,7 +113,7 @@ def states_by_cities():
     UL tag: with the list of all State objects present in DBStorage sorted
     by name (A->Z) tip
     LI tag: description of one State: <state.id>: <B><state.name></B> + UL
-    tag: with the list of City objects linked to the State sorted by name 
+    tag: with the list of City objects linked to the State sorted by name
     LI tag: description of one City: <city.id>: <B><city.name></B>
     """
     all_states = storage.all(State).values()
@@ -147,21 +148,21 @@ def cities(id):
     """
     for state in storage.all(State).values():
         if state.id == id:
-            return render_template("9-states.html",state=state)
+            return render_template("9-states.html", state=state)
         else:
-            return render_template("9-states.html",state=None)
+            return render_template("9-states.html", state=None)
 
 
 @app.route("/hbnb_filters")
 def filters():
     """
-    display a HTML page like 6-index.html, which was done during the project 
+    display a HTML page like 6-index.html, which was done during the project
     0x01. AirBnB clone - Web static
     """
     all_states = storage.all(State).values()
     all_amenities = storage.all(Amenity).values()
     return render_template("10-hbnb_filters.html",
-                           all_states=all_states, all_amenities=all_amenities)            
+                           all_states=all_states, all_amenities=all_amenities)
 
 
 if __name__ == "__main__":
