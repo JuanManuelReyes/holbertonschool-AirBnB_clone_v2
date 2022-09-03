@@ -82,7 +82,7 @@ def odd_or_even_template(n):
     return render_template("6-number_odd_or_even.html", number=n,
                            desc=desc)
 
-  
+
 @app.teardown_appcontext
 def teardown(self):
     """
@@ -109,8 +109,10 @@ def states_by_cities():
     """
     display a HTML page: (inside the tag BODY)
     H1 tag: “States”
-    UL tag: with the list of all State objects present in DBStorage sorted by name (A->Z) tip
-    LI tag: description of one State: <state.id>: <B><state.name></B> + UL tag: with the list of City objects linked to the State sorted by name (A->Z)
+    UL tag: with the list of all State objects present in DBStorage sorted
+    by name (A->Z) tip
+    LI tag: description of one State: <state.id>: <B><state.name></B> + UL
+    tag: with the list of City objects linked to the State sorted by name (A->Z)
     LI tag: description of one City: <city.id>: <B><city.name></B>
     """
     all_states = storage.all(State).values()
@@ -122,7 +124,8 @@ def states():
     """
     display a HTML page: (inside the tag BODY)
     H1 tag: “States”
-    UL tag: with the list of all State objects present in DBStorage sorted by name (A->Z) tip
+    UL tag: with the list of all State objects present in DBStorage sorted
+    by name (A->Z) tip
     LI tag: description of one State: <state.id>: <B><state.name></B>
     """
     all_states = storage.all(State).values()
@@ -136,16 +139,17 @@ def cities(id):
     If a State object is found with this id:
         H1 tag: “State: ”
         H3 tag: “Cities:”
-        UL tag: with the list of City objects linked to the State sorted by name (A->Z)
+        UL tag: with the list of City objects linked to the State sorted by
+        name (A->Z)
         LI tag: description of one City: <city.id>: <B><city.name></B>
     Otherwise:
         H1 tag: “Not found!”
     """
     for state in storage.all(State).values():
         if state.id == id:
-            return render_template('9-states.html',state=state)
+            return render_template('9-states.html', state=state)
         else:
-            return render_template('9-states.html',state=None)
+            return render_template('9-states.html', state=None)
 
 
 if __name__ == '__main__':
