@@ -33,6 +33,7 @@ def print_C(text):
     final_text = text.replace("_", " ")
     return "C {}".format(final_text)
 
+
 """
 With strict slashes /python and /python/ have the same result
 """

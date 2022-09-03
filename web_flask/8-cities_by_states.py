@@ -9,6 +9,7 @@ from models.state import State
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def hello_HBNB():
     """
@@ -24,6 +25,7 @@ def HBNB():
     """
     return 'HBNB'
 
+
 @app.route("/c/<text>", strict_slashes=False)
 def print_C(text):
     """
@@ -33,18 +35,22 @@ def print_C(text):
     final_text = text.replace("_", " ")
     return "C {}".format(final_text)
 
+
 """
 With strict slashes /python and /python/ have the same result
 """
+
+
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def print_py(text = 'is cool'):
+def print_py(text='is cool'):
     """
     display “Python ”, followed by the value of the text
     variable (replace underscore _ symbols with a space )
     """
     final_text = text.replace("_", " ")
     return "Python {}".format(final_text)
+
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
@@ -53,6 +59,7 @@ def number(n):
     """
     return "{} is a number".format(n)
 
+
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
     """
@@ -60,6 +67,7 @@ def number_template(n):
     h1 tag: “Number: n” inside the tag body
     """
     return render_template('5-number.html', number=n)
+
 
 @app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
 def odd_or_even_template(n):
@@ -73,7 +81,8 @@ def odd_or_even_template(n):
         desc = "odd"
     return render_template("6-number_odd_or_even.html", number=n,
                            desc=desc)
-    
+
+
 @app.teardown_appcontext
 def teardown(self):
     """
@@ -93,6 +102,7 @@ def states_list():
     """
     all_states = storage.all(State).values()
     return render_template("7-states_list.html", all_states=all_states)
+
 
 @app.route("/cities_by_states", strict_slashes=False)
 def states_by_cities():

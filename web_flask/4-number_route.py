@@ -7,6 +7,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def hello_HBNB():
     """
@@ -22,6 +23,7 @@ def HBNB():
     """
     return 'HBNB'
 
+
 @app.route("/c/<text>", strict_slashes=False)
 def print_C(text):
     """
@@ -31,12 +33,15 @@ def print_C(text):
     final_text = text.replace("_", " ")
     return "C {}".format(final_text)
 
+
 """
 With strict slashes /python and /python/ have the same result
 """
+
+
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def print_py(text = 'is cool'):
+def print_py(text='is cool'):
     """
     display “Python ”, followed by the value of the text
     variable (replace underscore _ symbols with a space )
@@ -44,12 +49,14 @@ def print_py(text = 'is cool'):
     final_text = text.replace("_", " ")
     return "Python {}".format(final_text)
 
+
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
     """
     display “n is a number” only if n is an integer
     """
     return "{} is a number".format(n)
+
 
 if __name__ == '__main__':
     """
