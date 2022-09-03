@@ -112,7 +112,7 @@ def states_by_cities():
     UL tag: with the list of all State objects present in DBStorage sorted
     by name (A->Z) tip
     LI tag: description of one State: <state.id>: <B><state.name></B> + UL
-    tag: with the list of City objects linked to the State sorted by name (A->Z)
+    tag: with the list of City objects linked to the State sorted by name
     LI tag: description of one City: <city.id>: <B><city.name></B>
     """
     all_states = storage.all(State).values()
@@ -147,7 +147,7 @@ def cities(id):
     """
     for state in storage.all(State).values():
         if state.id == id:
-            return render_template('9-states.html', state=state)
+            return render_template('9-states.html',state=state)
         else:
             return render_template('9-states.html', state=None)
 
