@@ -148,8 +148,8 @@ def cities(id):
     for state in storage.all(State).values():
         if state.id == id:
             return render_template('9-states.html', state=state)
-        else:
-            return render_template('9-states.html', state=None)
+    
+    return render_template('9-states.html', state=None)
 
 
 if __name__ == '__main__':
