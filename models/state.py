@@ -29,6 +29,7 @@ from models.city import City
 
 #             return cities_array
 
+
 class State(BaseModel, Base):
     """ State class """
     type_storage = getenv("HBNB_TYPE_STORAGE")
