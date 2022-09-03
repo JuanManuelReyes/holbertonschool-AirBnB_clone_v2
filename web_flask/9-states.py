@@ -130,8 +130,12 @@ def cities():
     Otherwise:
         H1 tag: “Not found!”
     """
-    all_states = storage.all(State).values()
-    return render_template("9-states.html", all_states=all_states)
+    state_obj = None
+    for state in storage.all(State).values():
+        if state.id == id:
+            return render_template('9-states.html',state=state)
+                           
+
 
 if __name__ == '__main__':
     """
