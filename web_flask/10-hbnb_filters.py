@@ -83,7 +83,7 @@ def odd_or_even_template(n):
         desc = "odd"
     return render_template("6-number_odd_or_even.html", number=n, desc=desc)
 
-    
+
 @app.teardown_appcontext
 def teardown(self):
     """
