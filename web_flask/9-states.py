@@ -119,7 +119,7 @@ def states():
 
 
 @app.route("/states/<id>", strict_slashes=False)
-def cities():
+def cities(id):
     """
     display a HTML page: (inside the tag BODY)
     If a State object is found with this id:
@@ -130,7 +130,6 @@ def cities():
     Otherwise:
         H1 tag: “Not found!”
     """
-    state_obj = None
     for state in storage.all(State).values():
         if state.id == id:
             return render_template('9-states.html',state=state)
