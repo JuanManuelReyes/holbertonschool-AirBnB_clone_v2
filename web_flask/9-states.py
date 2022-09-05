@@ -133,7 +133,7 @@ def states():
 
 
 @app.route("/states/<id>", strict_slashes=False)
-def cities(id):
+def cities(id=None):
     """
     display a HTML page: (inside the tag BODY)
     If a State object is found with this id:
