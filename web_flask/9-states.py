@@ -129,7 +129,7 @@ def states():
     LI tag: description of one State: <state.id>: <B><state.name></B>
     """
     all_states = storage.all(State).values()
-    return render_template("9-states.html", all_states=all_states)
+    return render_template("7-states_list.html", all_states=all_states)
 
 
 @app.route("/states/<id>", strict_slashes=False)
